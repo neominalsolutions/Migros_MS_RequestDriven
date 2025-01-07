@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanApplication.API", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerCredit.API", "src\CustomerCredit.API\CustomerCredit.API.csproj", "{CF40F11B-F24E-41DC-83C8-4183E80A1DC8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A8CEAEB8-858F-4A87-9F46-65D11BE1282C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B889C996-7844-4D4B-BFCA-727C9D745ACD} = {7C5BA4E0-5E1C-46FF-B331-03C89C32A19B}
 		{CF40F11B-F24E-41DC-83C8-4183E80A1DC8} = {7C5BA4E0-5E1C-46FF-B331-03C89C32A19B}
+		{A8CEAEB8-858F-4A87-9F46-65D11BE1282C} = {7C5BA4E0-5E1C-46FF-B331-03C89C32A19B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0C62319-0CF6-4EA7-9FF5-8938137417DE}
