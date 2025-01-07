@@ -2,4 +2,5 @@
 {
   public record GetCreditScoreFaultResponse(string Message);
 
+  
 }

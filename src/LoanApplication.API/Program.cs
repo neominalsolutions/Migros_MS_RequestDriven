@@ -25,7 +25,7 @@ builder.Services.AddMassTransit(cfg =>
     config.Host(builder.Configuration.GetConnectionString("RabbitConn"));
     // requestin atýlýp response aldýðýný servisde ayný api da olduðu gibi endpoint tanýmý yapýlýr.
 
-    config.ReceiveEndpoint("get-credit-score_error", cfg => cfg.ConfigureConsumer<CreditScoreFaultConsumer>(context));
+    config.ReceiveEndpoint("get-credit-score-error", cfg => cfg.ConfigureConsumer<CreditScoreFaultConsumer>(context));
     config.ConfigureEndpoints(context);
 
   });

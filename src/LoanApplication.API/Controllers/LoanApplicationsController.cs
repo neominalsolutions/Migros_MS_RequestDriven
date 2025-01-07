@@ -25,7 +25,7 @@ namespace LoanApplication.API.Controllers
       {
 
         var request = new GetCreditScoreRequest(accountNumber: req.accountNumber, 1500000, requestAmount: req.amount, 12);
-        var response = await this.requestClient.GetResponse<CreditIsSuitableResponse, CreditIsNotSuitableResponse, Fault<CreditScoreFaultResponse>>(request);
+        var response = await this.requestClient.GetResponse<CreditIsSuitableResponse, CreditIsNotSuitableResponse>(request);
 
 
 
