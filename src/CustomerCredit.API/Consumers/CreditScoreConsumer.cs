@@ -14,12 +14,8 @@ namespace CustomerCredit.API.Consumers
 
       // eğer client request de bir hata meydana gelirs
       // 1.yöntem
-      // throw new InvalidOperationException("Hata Meydana geldi");
-
-      // 2. case hata olarak response gönderme
-      await context.RespondAsync<Fault<CreditScoreFaultResponse>>(new CreditScoreFaultResponse("Hatalı İşlem"));
-
-
+      throw new InvalidOperationException("Hata Meydana geldi");
+    
 
       //// yıllık kazancın yüzde 30 kadar kredi alınabilir
       //if((context.Message.annualIncome * 0.30M) >= context.Message.requestAmount) {

@@ -21,22 +21,15 @@ namespace LoanApplication.API.Controllers
     [HttpPost]
     public async Task<IActionResult> POST([FromBody] LoanApplicationRequest req)
     {
-
-    
-        var request = new GetCreditScoreRequest(accountNumber: req.accountNumber, 1500000, requestAmount: req.amount, 12);
-        var response = await this.requestClient.GetResponse<CreditIsSuitableResponse, CreditIsNotSuitableResponse,Fault<CreditScoreFaultResponse>>(request);
-
-
-
-      if(response.Is(out Response<Fault<CreditScoreFaultResponse>> faultRes))
+      try
       {
-        return Ok(faultRes.Message);
 
-      }
+        var request = new GetCreditScoreRequest(accountNumber: req.accountNumber, 1500000, requestAmount: req.amount, 12);
+        var response = await this.requestClient.GetResponse<CreditIsSuitableResponse, CreditIsNotSuitableResponse, Fault<CreditScoreFaultResponse>>(request);
 
 
 
-      if (response.Is(out Response<CreditIsNotSuitableResponse> isNotSuitableRes))
+        if (response.Is(out Response<CreditIsNotSuitableResponse> isNotSuitableRes))
         {
           await Console.Out.WriteLineAsync(isNotSuitableRes.Message.reason);
           return Ok(isNotSuitableRes.Message);
@@ -48,10 +41,17 @@ namespace LoanApplication.API.Controllers
           await Console.Out.WriteLineAsync($"Score {isSuitableRes.Message.creditScore}, limit: {isSuitableRes.Message.availableLimit}");
         }
 
+      
 
-     
-        return Ok(isSuitableRes.Message);
+      }
+      catch (RequestFaultException ex)
+      {
 
+        await Console.Out.WriteLineAsync(ex.Message);
+      }
+
+
+      return Ok();
 
     }
   }
