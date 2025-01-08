@@ -1,6 +1,7 @@
 ﻿
 
 
+using CustomerCredit.API.Messages;
 using MassTransit;
 using Message.Contracts;
 
@@ -23,7 +24,10 @@ namespace CustomerCredit.API.Consumers
       catch (Exception ex)
       {
         await context.Publish<Fault<GetCreditScoreFaultResponse>>(ex.Message);
+        await context.RespondAsync<Fault<GetCreditScoreFaultResponse>>(new GetCreditScoreFaultResponse(ex.Message));
       }
+
+     
 
 
       // Eğer hata yerine response dönerse buradan devam edelim.

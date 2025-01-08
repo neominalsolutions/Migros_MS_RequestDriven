@@ -10,6 +10,8 @@ namespace LoanApplication.API.Consumers
     public async Task Consume(ConsumeContext<Fault<GetCreditScoreFaultResponse>> context)
     {
       await Console.Out.WriteLineAsync($"Hata: {context.Message}");
+
+    
     }
   }
 }
